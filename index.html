@@ -1255,7 +1255,7 @@ select.form-input { appearance:none;cursor:pointer; }
     <!-- RIGHT PANEL -->
     <div class="auth-right">
       <div style="width:100%;max-width:360px">
-        <button class="auth-back-btn" onclick="goToLanding()" 
+        <button class="auth-back-btn d-md-none" onclick="goToLanding()" 
           style="position:static;margin-bottom:20px;display:inline-flex">
           ← Back to Home
         </button>
@@ -1355,7 +1355,6 @@ select.form-input { appearance:none;cursor:pointer; }
         </div>
         <div class="nav-section">
           <div class="nav-label">System</div>
-          <div class="nav-item" onclick="navigateTo('admin')"><span class="nav-icon">⚙️</span><span>Admin Panel</span></div>
           <div class="nav-item" onclick="navigateTo('settings')"><span class="nav-icon">🔧</span><span>Settings</span></div>
         </div>
       </nav>
@@ -1547,35 +1546,6 @@ select.form-input { appearance:none;cursor:pointer; }
           <div class="glass p-4">
             <div style="font-size:15px;font-weight:500;margin-bottom:16px">📜 Backup History</div>
             <div style="overflow-x:auto"><table class="admin-table"><thead><tr><th>Date & Time</th><th>Size</th><th>Type</th><th>Status</th><th>Action</th></tr></thead><tbody id="backup-history"></tbody></table></div>
-          </div>
-        </div>
-
-        <!-- ADMIN -->
-        <div class="page" id="page-admin">
-          <div class="section-header"><span class="section-title-sm">Admin Panel</span></div>
-          <div class="stats-grid mb-4">
-            <div class="stat-card glass"><span class="stat-icon">👥</span><div class="stat-label">Total Users</div><div class="stat-value">12</div></div>
-            <div class="stat-card glass"><span class="stat-icon">🖼️</span><div class="stat-label">Total Photos</div><div class="stat-value">24.8K</div></div>
-            <div class="stat-card glass"><span class="stat-icon">💾</span><div class="stat-label">Total Storage</div><div class="stat-value">184 GB</div></div>
-            <div class="stat-card glass"><span class="stat-icon">⚡</span><div class="stat-label">Server Load</div><div class="stat-value">23%</div></div>
-          </div>
-          <div class="glass p-4 mb-4">
-            <div class="d-flex align-items-center justify-content-between mb-3 flex-wrap gap-2"><div style="font-size:15px;font-weight:500">👥 User Management</div><button class="btn-sm accent">+ Add User</button></div>
-            <div style="overflow-x:auto"><table class="admin-table"><thead><tr><th>User</th><th>Email</th><th>Role</th><th>Photos</th><th>Storage</th><th>Status</th><th>Actions</th></tr></thead><tbody id="admin-users-table"></tbody></table></div>
-          </div>
-          <div class="glass p-4">
-            <div style="font-size:15px;font-weight:500;margin-bottom:16px">🖥️ System Settings</div>
-            <div class="row g-4">
-              <div class="col-md-6">
-                <div class="settings-row" style="padding:10px 0"><div><div class="settings-label">Maintenance Mode</div><div class="settings-desc">Disable public access</div></div><label class="toggle"><input type="checkbox"><span class="toggle-slider"></span></label></div>
-                <div class="settings-row" style="padding:10px 0"><div><div class="settings-label">New Registrations</div></div><label class="toggle"><input type="checkbox" checked><span class="toggle-slider"></span></label></div>
-                <div class="settings-row" style="padding:10px 0"><div><div class="settings-label">Email Notifications</div></div><label class="toggle"><input type="checkbox" checked><span class="toggle-slider"></span></label></div>
-              </div>
-              <div class="col-md-6">
-                <div class="form-group"><label class="form-label">Default Storage Quota</label><select class="form-input"><option>5 GB</option><option selected>10 GB</option><option>25 GB</option><option>50 GB</option></select></div>
-                <div class="form-group"><label class="form-label">Max Upload Size</label><select class="form-input"><option>10 MB</option><option selected>50 MB</option><option>100 MB</option></select></div>
-              </div>
-            </div>
           </div>
         </div>
 
@@ -1952,7 +1922,6 @@ function navigateTo(page){
   if(page==='timeline')renderTimeline();
   if(page==='favorites')renderFavorites();
   if(page==='analytics')setTimeout(initAnalyticsCharts,100);
-  if(page==='admin')renderAdmin();
   if(page==='backup')renderBackup();
   if(page==='search')advSearch();
   updateFavCount();
